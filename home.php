@@ -1,4 +1,5 @@
 <?php
+include("header.html");
 session_start();
 include("dbs.php"); // Database connection
 
@@ -27,6 +28,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['game_id'])) {
     <title>Game Chooser</title>
 </head>
 <body>
+<body>
+
     <h1>Choose a Game to Rate</h1>
 
     <!-- Dropdown to select existing game -->
@@ -43,10 +46,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['game_id'])) {
 
     <!-- Link to Add a New Game -->
     <p>If your game is not listed, click here to <a href="add_game.php">Add a New Game</a>.</p>
+    <a href="game_ratings.php">Game ratings</a>
 
 </body>
 </html>
 
 <?php
-mysqli_close($conn); // Close the database connection
+mysqli_close($conn);
+include("footer.html");
 ?>

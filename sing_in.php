@@ -1,4 +1,5 @@
 <?php
+include("header.html");
 session_start();
 include("dbs.php");
 
@@ -77,3 +78,7 @@ mysqli_close($conn);
     </div>
 </body>
 </html>
+
+<?php
+include("footer.html");
+?>

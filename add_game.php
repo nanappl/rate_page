@@ -1,4 +1,5 @@
 <?php
+include("header.html");
 session_start();
 include("dbs.php"); // Database connection
 
@@ -51,3 +52,7 @@ mysqli_close($conn); // Close the database connection
 
 </body>
 </html>
+
+<?php
+include("footer.html");
+?>

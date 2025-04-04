@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("dbs.php"); // Include the database connection file
+include("header.html");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -79,3 +80,8 @@ mysqli_close($conn);
     </div>
 </body>
 </html>
+
+<?php
+include("footer.html");
+?>
+
