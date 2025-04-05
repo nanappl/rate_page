@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+.home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px auto 150px auto;
+}
+
+h1 {
+    color: #135085;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+select, button {
+    height: 50px;
+    width: 100%;
+    padding: 10px;
+    margin: 20px 0;
+    border-radius: 5px;
+    border: 1px solid #135085; /* Dark blue border */
+}
+
+button {
+    background-color: #135085; /* Dark blue background */
+    color: #ffffff; /* White text */
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+}
+
+button:hover {
+    transition: 0.3s;
+    background-color: #0a3a60; /* Slightly darker blue on hover */
+}
+
+/* Paragraph and link styling */
+p {
+    text-align: center;
+    color: #135085; /* Dark blue text */
+}

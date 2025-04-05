@@ -126,6 +126,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rate <?php echo htmlspecialchars($game_name); ?></title>
+    <link rel="stylesheet" href="style/rate.css">
     <style>
         /* Tooltip styling */
         .tooltip {
@@ -150,7 +151,6 @@
 </head>
 <body>
     <h1>Rate the Game: <?php echo htmlspecialchars($game_name); ?></h1>
-    
     <form method="POST">
         <div class="rating-container">
             <label for="emotional_connection">Emotional Connection (1-9):</label>

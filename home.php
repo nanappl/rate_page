@@ -26,15 +26,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['game_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Chooser</title>
+    <link rel="stylesheet" href="style/home.css">
 </head>
 <body>
 <body>
-
-    <h1>Choose a Game to Rate</h1>
-
-    <!-- Dropdown to select existing game -->
+<div class="home">
     <form action="home.php" method="POST">
-        <label for="game_id">Choose a game:</label>
+    <h1>Choose a Game to Rate</h1>
         <select name="game_id" id="game_id" required>
             <option value="" disabled selected>Select a game</option>
             <?php while ($row = mysqli_fetch_assoc($result)) { ?>
@@ -42,11 +40,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['game_id'])) {
             <?php } ?>
         </select>
         <button type="submit">Rate Game</button>
+        <p>If your game is not listed, click here to <a href="add_game.php">Add a New Game</a>.</p>
     </form>
 
-    <!-- Link to Add a New Game -->
-    <p>If your game is not listed, click here to <a href="add_game.php">Add a New Game</a>.</p>
-    <a href="game_ratings.php">Game ratings</a>
+    <a class = "rategame" href="game_ratings.php"><button>Game ratings</button></a>
+</div>
 
 </body>
 </html>

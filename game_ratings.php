@@ -163,11 +163,11 @@ foreach ($games as $game) {
     <meta charset="UTF-8">
     <title>Game Ratings</title>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <link rel="stylesheet" href="style/rating.css">
 </head>
 <body>
 
 <h1>Game Ratings</h1>
-<a href="home.php"></a>
 
 <form method="POST">
     <label for="game_id">Select a game:</label>
@@ -180,6 +180,7 @@ foreach ($games as $game) {
         <?php endforeach; ?>
     </select>
     <button type="submit">Show Ratings</button>
+    <a href="home.php">go home</a>
 </form>
 
 
@@ -217,11 +218,15 @@ foreach ($games as $game) {
     <?php endif; ?>
 <?php endif; ?>
 
-<h2>All Games Average Ratings (Radar Chart)</h2>
-<div id="allGamesChart"></div>
+<div class="chart">
+    <h2>All Games Average Ratings (Radar Chart)</h2>
+    <div id="allGamesChart"></div>
+</div>
 
-<h2>Your Ratings Across All Games (Radar Chart)</h2>
-<div id="userGamesChart"></div>
+<div class="chart">
+    <h2>Your Ratings Across All Games (Radar Chart)</h2>
+    <div id="userGamesChart"></div>
+</div>
 
 <script>
 const categories = [
