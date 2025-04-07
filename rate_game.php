@@ -114,7 +114,7 @@
     }
 
     $conn->close();
-    ?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -122,13 +122,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rate <?php echo htmlspecialchars($game_name); ?></title>
-    <link rel="stylesheet" href="style/rate.css">
+
     <style>
-        /* Tooltip styling */
+
+        body{
+            text-align: center;
+        }
         .tooltip {
+            width: 300px;
+            right: -380px;
             display: none;
             position: absolute;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: #0e3b63;
             color: #fff;
             padding: 5px;
             border-radius: 5px;
@@ -143,94 +148,19 @@
         .rating-container {
             position: relative;
         }
-    </style>
-</head>
-<body>
-    <h1>Rate the Game: <?php echo htmlspecialchars($game_name); ?></h1>
-    <form method="POST">
-        <div class="rating-container">
-            <label for="emotional_connection">Emotional Connection (1-9):</label>
-            <span class="info-icon" onmouseover="showTooltip('tooltip1')" onmouseout="hideTooltip('tooltip1')">?</span>
-            <input type="number" id="emotional_connection" name="emotional_connection" min="1" max="9" required>
-            <div id="tooltip1" class="tooltip">Coming soon</div>
-        </div>
 
-        <div class="rating-container">
-            <label for="exploratory_learning">Exploratory Learning (1-9):</label>
-            <span class="info-icon" onmouseover="showTooltip('tooltip2')" onmouseout="hideTooltip('tooltip2')">?</span>
-            <input type="number" id="exploratory_learning" name="exploratory_learning" min="1" max="9" required>
-            <div id="tooltip2" class="tooltip">Coming soon</div>
-        </div>
-
-        <div class="rating-container">
-            <label for="visual_feedback">Visual Feedback (1-9):</label>
-            <span class="info-icon" onmouseover="showTooltip('tooltip3')" onmouseout="hideTooltip('tooltip3')">?</span>
-            <input type="number" id="visual_feedback" name="visual_feedback" min="1" max="9" required>
-            <div id="tooltip3" class="tooltip">Coming soon</div>
-        </div>
-
-        <div class="rating-container">
-            <label for="real_life_relevance">Real-Life Relevance (1-9):</label>
-            <span class="info-icon" onmouseover="showTooltip('tooltip4')" onmouseout="hideTooltip('tooltip4')">?</span>
-            <input type="number" id="real_life_relevance" name="real_life_relevance" min="1" max="9" required>
-            <div id="tooltip4" class="tooltip">Coming soon</div>
-        </div>
-
-        <div class="rating-container">
-            <label for="progress_tracking">Progress Tracking (1-9):</label>
-            <span class="info-icon" onmouseover="showTooltip('tooltip5')" onmouseout="hideTooltip('tooltip5')">?</span>
-            <input type="number" id="progress_tracking" name="progress_tracking" min="1" max="9" required>
-            <div id="tooltip5" class="tooltip">Coming soon</div>
-        </div>
-
-        <div class="rating-container">
-            <label for="conceptual_understanding">Conceptual Understanding (1-9):</label>
-            <span class="info-icon" onmouseover="showTooltip('tooltip6')" onmouseout="hideTooltip('tooltip6')">?</span>
-            <input type="number" id="conceptual_understanding" name="conceptual_understanding" min="1" max="9" required>
-            <div id="tooltip6" class="tooltip">Coming soon</div>
-        </div>
-
-        <div class="rating-container">
-            <label for="collaboration_experimentation">Collaboration/Experimentation (1-9):</label>
-            <span class="info-icon" onmouseover="showTooltip('tooltip7')" onmouseout="hideTooltip('tooltip7')">?</span>
-            <input type="number" id="collaboration_experimentation" name="collaboration_experimentation" min="1" max="9" required>
-            <div id="tooltip7" class="tooltip">Coming soon</div>
-        </div>
-
-        <div class="rating-container">
-            <label for="game_balance">Game Balance (1-9):</label>
-            <span class="info-icon" onmouseover="showTooltip('tooltip8')" onmouseout="hideTooltip('tooltip8')">?</span>
-            <input type="number" id="game_balance" name="game_balance" min="1" max="9" required>
-            <div id="tooltip8" class="tooltip">Coming soon</div>
-        </div>
-
-        <div class="rating-container">
-            <label for="immediate_feedback">Immediate Feedback (1-9):</label>
-            <span class="info-icon" onmouseover="showTooltip('tooltip9')" onmouseout="hideTooltip('tooltip9')">?</span>
-            <input type="number" id="immediate_feedback" name="immediate_feedback" min="1" max="9" required>
-            <div id="tooltip9" class="tooltip">Coming soon</div>
-        </div>
-
-        <button type="submit">Submit Rating</button>
-    </form>
-
-    <a href="home.php">Back to Home</a>
-
-    <script>
-        function showTooltip(id) {
-            document.getElementById(id).style.display = 'block';
+        
+        select {
+            font-size: 14px;
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #135085;
+            background-color: #fff;
+            color: #135085;
+            width: 100px;
         }
 
-        function hideTooltip(id) {
-            document.getElementById(id).style.display = 'none';
-        }
-    </script>
-
-</body>
-</html>
-
-<style>
-    body {
+        body {
     font-family: 'Segoe UI', sans-serif;
     background-color: #fff;
     margin: 0;
@@ -252,7 +182,7 @@ form {
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
-    align-items: flex-start; 
+    justify-content: space-between;
 }
 
 .rating-container {
@@ -262,75 +192,113 @@ form {
     width: 100%;
 }
 
-label {
-    font-size: 18px;
-    margin-right: 15px; /* Space between label and input (about 3cm) */
-    flex: 1; /* Ensures the label occupies available space */
-}
-
-input[type="number"] {
-    width: 30px; 
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid #135085;
-    font-size: 15px;
-    background-color: #fff;
-    color: #135085;
-}
-
-.info-icon {
-    cursor: pointer;
-    color: #007bff;
-    margin-left: 5px;
-}
-
-.tooltip {
-    display: none;
-    position: absolute;
-    color: #fff;
-    padding: 5px;
-    border-radius: 5px;
-    font-size: 12px;
+a {
+    text-decoration: none; /* removes underline */
+    color: inherit;        /* uses parent text color */
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    cursor: pointer;       /* optional */
 }
 
 button {
     background-color: #135085;
     color: white;
-    padding: 12px;
     border: none;
+    padding: 12px;
     border-radius: 6px;
+    font-size: 16px;
+    margin-top: 20px;
     cursor: pointer;
-    font-weight: bold;
-    margin-top: 20px; 
-    display: block;
-    width: auto;
-    margin: 20px auto;
 }
 
 button:hover {
-    background-color: #0e3b63;
+    transition: .3s;
+    background-color: #0f3f6a;
 }
 
-.back-to-home {
-    display: inline-block;
-    font-size: 18px;
-    color: #135085;
-    text-decoration: none;
-    padding: 10px 15px;
-    background-color: #fff;
-    cursor: pointer;
-    font-weight: bold;
-    margin-top: 20px;
-    text-align: center;
-    transition: background-color 0.3s;
-}
+    </style>
+</head>
+<body>
+    <div class = "form_con">
+    <h1>Rate the Game: <?php echo htmlspecialchars($game_name); ?></h1>
+    <form method="POST">
+        <?php
+            $criteria = [
+                "emotional_connection" => [
+                    "label" => "Emotional Connection",
+                    "tooltip" => "A game’s ability to make students feel personally connected to mathematical concepts, reducing anxiety and increasing engagement."
+                ],
+                "exploratory_learning" => [
+                    "label" => "Exploratory Learning",
+                    "tooltip" => "The extent to which a game allows students to investigate and experiment with mathematical ideas, rather than just solving pre-set problems."
+                ],
+                "visual_feedback" => [
+                    "label" => "Visual Feedback",
+                    "tooltip" => "How well a game provides immediate and clear visual responses to student actions, reinforcing their learning process."
+                ],
+                "real_life_relevance" => [
+                    "label" => "Real-Life Relevance",
+                    "tooltip" => "The ability of a game to connect mathematical concepts to real-world applications."
+                ],
+                "progress_tracking" => [
+                    "label" => "Progress Tracking",
+                    "tooltip" => "The game’s ability to monitor student development without relying solely on traditional assessments."
+                ],
+                "conceptual_understanding" => [
+                    "label" => "Conceptual Understanding",
+                    "tooltip" => "Whether a game reinforces deep comprehension rather than just memorization of procedures."
+                ],
+                "collaboration_experimentation" => [
+                    "label" => "Collaboration / Experimentation",
+                    "tooltip" => "The extent to which a game encourages teamwork, discussion, and creative problem-solving."
+                ],
+                "game_balance" => [
+                    "label" => "Game Balance",
+                    "tooltip" => "How well a game maintains challenge without becoming frustrating or too easy."
+                ],
+                "immediate_feedback" => [
+                    "label" => "Immediate Feedback",
+                    "tooltip" => "How quickly and effectively a game responds to student actions, helping them learn from mistakes."
+                ]
+            ];
 
-.back-to-home:hover {
-    color:  #5c93cd;
-}
+            $i = 1;
+            foreach ($criteria as $key => $data) {
+                $label = $data["label"];
+                $tooltip = $data["tooltip"];
+                echo '<div class="rating-container">';
+                echo "<label for=\"$key\">$label (1–9):</label>";
+                echo "<select name=\"$key\" id=\"$key\" required>";
+                echo "<option value=\"\" disabled selected>Select</option>";
+                for ($j = 1; $j <= 9; $j++) {
+                    echo "<option value=\"$j\">$j</option>";
+                }
+                echo "</select>";
+                echo "<span class='info-icon' onmouseover=\"showTooltip('tooltip$i')\" onmouseout=\"hideTooltip('tooltip$i')\">?</span>";
+                echo "<div id='tooltip$i' class='tooltip'>$tooltip</div>";
+                echo '</div>';
+                $i++;
+            }
+        ?>
 
+        <button type="submit">Submit Rating</button>
+        <button> <a href="home.php" class="back-to-home">Back to Home</a></button>
+    </form>
 
-</style>
+    </div>
+    <script>
+        function showTooltip(id) {
+            document.getElementById(id).style.display = 'block';
+        }
+
+        function hideTooltip(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+    </script>
+</body>
+</html>
 
 <?php
     include("footer.html");

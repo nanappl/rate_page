@@ -16,10 +16,12 @@ width: 100%;
 }
 
 .f_pic{
-    width: 300px;
-    height: 100px;
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit:cover;
     overflow: hidden;
-    border: 2px solid #0e5979;
+
 }
 
 .foot_info{

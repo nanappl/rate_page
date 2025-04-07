@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style/footer.css">
+    <!-- <link rel="stylesheet" href="style/footer.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
    <div class="footer">
         <div class="foot_pic">
-            <img src="" alt="" class="f_pic">
-            <img src="" alt="" class="f_pic">
-            <img src="" alt="" class="f_pic">
-            <img src="" alt="" class="f_pic">
+            <img src="img/Headstart-logo-05-2048x444.png" alt="" class="f_pic">
+            <img src="img/UCDLogohorizontal.png" class="f_pic">
+            <img src="img/Erasmus-logo-768x166.png" alt="" class="f_pic">
+            <img src="img/Leargas-logo-RGB-72-e1709994618220.png" alt="" class="f_pic">
         </div>  
         <div class="foot_info">
             <div class="f_info">
@@ -36,4 +36,57 @@
 
     </div>
 </body>
+
+<style>
+
+
+    .footer{
+        background-color: #0e5979;
+    display: flex;
+    flex-direction: column;
+bottom: 0;
+width: 100%;
+}
+
+p{
+    margin: 0;
+    color: white;
+}
+
+
+
+
+
+.foot_pic{
+    padding: 10px 0;
+    background-color: #6EC0E3;
+    display: flex;
+    justify-content: space-around;
+}
+
+.f_pic{
+    width: 300px;
+    object-fit: cover;
+    overflow: hidden;
+    object-fit:fill;
+}
+
+
+.foot_info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px;
+    gap: 30px;
+    color: white;
+    padding: 10px;
+    background-color: #0e5979;
+}
+
+.f_info{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+</style>
 </html>

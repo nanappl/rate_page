@@ -37,6 +37,7 @@ mysqli_close($conn); // Close the database connection
     <link rel="stylesheet" href="style/add.css">
 </head>
 <body>
+    <div class="add_game">
     <h1>Add a New Game</h1>
     
     <form action="" method="POST">
@@ -47,14 +48,18 @@ mysqli_close($conn); // Close the database connection
         <textarea id="description" name="description" required></textarea><br>
 
         <button type="submit">Add Game</button>
+       <button> <a href="home.php">Back to Game Chooser</a></button>
     </form>
+    </div>
 
-    <p><a href="home.php">Back to Game Chooser</a></p>
 
 </body>
-</html>
 
-<!-- <style>
+<style>
+
+.add_game{
+    margin: 100px 0;
+}
     body {
     font-family: Arial, sans-serif;
     background-color: #ffffff;
@@ -79,6 +84,16 @@ form {
     display: flex;
     flex-direction: column;
 }
+a {
+    text-decoration: none; /* removes underline */
+    color: inherit;        /* uses parent text color */
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    cursor: pointer;       /* optional */
+}
+
 
 label {
     font-weight: bold;
@@ -111,6 +126,7 @@ button {
 }
 
 button:hover {
+    transition: .3s;
     background-color: #0f3f6a;
 }
 
@@ -139,7 +155,8 @@ button:hover {
     font-size: 16px;
 }
 
-</style> -->
+</style>
+</html>
 
 <?php
 include("footer.html");

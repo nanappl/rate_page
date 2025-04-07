@@ -24,7 +24,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['game_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Chooser</title>
-    <link rel="stylesheet" href="style/home.css">
 </head>
 <body>
 <body>
@@ -37,21 +36,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['game_id'])) {
                 <option value="<?php echo $row['id']; ?>"><?php echo htmlspecialchars($row['name']); ?></option>
             <?php } ?>
         </select>
-        <button type="submit">Rate Game</button>
-        <a class = "ratame" href="game_ratings.php">Game ratings</a>
+        <button type="submit" class="button_click">Rate Game</button>
+       <button> <a class = "ratame" href="game_ratings.php">Game ratings</a></button>
 
-        <p>If your game is not listed, click here to <a href="add_game.php">Add a New Game</a>.</p>
+        <p id = "nu_p">If your game is not listed, click here to <a href="add_game.php">Add a New Game</a>.</p>
     </form>
 </div>
 
 </body>
-</html>
 <style>
-    body {
+
+
+
+
+#nu_p{
+    margin-top: 20px;
+    color: #0a3a60;
+}
+
+body {
     font-family: Arial, sans-serif;
-    background-color: #ffffff;
     margin: 0;
     padding: 0;
+}
+
+.button_click{  
+    background-attachment: fixed;
 }
 
 
@@ -69,6 +79,7 @@ h1 {
 }
 
 
+
 form {
     background-color: #fff;
     padding: 20px;
@@ -79,18 +90,34 @@ form {
     box-shadow: 0 4px 8px rgba(0, 0, 1, 0.9);
 }
 
+button {
+    background-color: #135085;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    transition: .3s;
+    background-color: #0f3f6a;
+}
 
 select, button {
     height: 50px;
     width: 100%;
     border-radius: 5px;
-    border: 1px solid #a61f90;
+    margin-top: 15px;
+    border: 1px solid #135085;
 }
 
 .buttons {
+    background-color: #5c93cd;
     display: flex;
-    flex-direction: column;
-    gap: 0.8cm; 
+    flex-direction: column; 
     margin-top: 20px;
 }
 
@@ -120,17 +147,18 @@ p {
     color: #135085; 
     margin-top: 10px; 
 }
-
-p a {
-    color: #5c93cd;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-p a:hover {
-    text-decoration: underline; 
+a {
+    text-decoration: none; /* removes underline */
+    color: inherit;        /* uses parent text color */
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    cursor: pointer;       /* optional */
 }
 </style>
+</html>
+
 <?php
 mysqli_close($conn);
 include("footer.html");
