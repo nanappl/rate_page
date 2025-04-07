@@ -1,10 +1,18 @@
-/* Base styles */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: #f4f4f4;
     margin: 0;
     padding: 20px;
     color: #333;
+}
+
+.rate_top{
+    display: flex;
+    flex-direction: column;
+}
+
+.choose_game{
+    width: 250px;
 }
 
 /* Header */
@@ -28,36 +36,50 @@ form {
     gap: 10px;
     margin-bottom: 30px;
 }
-
-select, button, a {
-    padding: 10px 15px;
-    font-size: 1rem;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    background: #fff;
+.button-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
 }
 
-button {
-    background-color: #3498db;
+.button-group button,
+.button-group a {
+    width: 250px;
+    padding: 12px 0;
+    font-size: 1rem;
+    text-align: center;
+    border-radius: 8px;
     color: white;
-    border: none;
+    text-decoration: none;
     cursor: pointer;
     transition: background-color 0.2s ease;
+    border: none;
 }
 
-button:hover {
+.button-group button {
     background-color: #2980b9;
 }
 
-a {
-    text-decoration: none;
-    background-color: #2ecc71;
-    color: white;
-    transition: background-color 0.2s ease;
+.button-group button:hover {
+    background-color: #1c598c;
 }
 
-a:hover {
-    background-color: #27ae60;
+.button-group a {
+    background-color: #07802e;
+}
+
+.button-group a:hover {
+    background-color: #023a13;
+}
+
+/* Responsívne */
+@media (max-width: 768px) {
+    .button-group button,
+    .button-group a {
+        width: 100%;
+    }
 }
 
 /* Tables */

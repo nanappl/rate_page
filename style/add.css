@@ -18,7 +18,7 @@ form {
     margin: 30px auto;
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 1, 0.9);
     display: flex;
     flex-direction: column;
 }
@@ -34,14 +34,16 @@ textarea {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
-    border: 1px solid #135085;
+    border: 1px solid #135085; 
     border-radius: 6px;
     font-size: 14px;
     resize: vertical;
-}
-
+    outline: none;
+    box-shadow: none;
+    background-color: #fff; 
+}  
 button {
-    background-color: #135085;
+    background-color: #af38e2;
     color: white;
     border: none;
     padding: 12px;
@@ -55,17 +57,27 @@ button:hover {
     background-color: #0f3f6a;
 }
 
-p {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-a {
+.back-game-chooser {
+    display: inline-block;
+    font-size: 18px;
     color: #135085;
     text-decoration: none;
+    padding: 10px 15px;
+    background-color: #fff;
+    cursor: pointer;
     font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+    transition: background-color 0.3s;
 }
 
-a:hover {
-    text-decoration: underline;
+.back-game-chooser:hover {
+    color:  #5c93cd;
+}
+
+.error-message {
+    color:  #135085;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 16px;
 }

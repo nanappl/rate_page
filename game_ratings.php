@@ -10,21 +10,21 @@ if (!isset($_SESSION["user_id"])) {
 
 $user_id = $_SESSION["user_id"];
 
-// Fetch all games
+
 $games_result = $conn->query("SELECT id, name FROM games");
 $games = [];
 while ($row = $games_result->fetch_assoc()) {
     $games[] = $row;
 }
 
-// Handle game selection
+
 $selected_game_id = isset($_POST["game_id"]) ? intval($_POST["game_id"]) : null;
 $selected_game_name = "";
 $average_ratings = [];
 $user_ratings = [];
 
 if ($selected_game_id) {
-    // Fetch selected game name
+
     $stmt = $conn->prepare("SELECT name FROM games WHERE id = ?");
     $stmt->bind_param("i", $selected_game_id);
     $stmt->execute();
@@ -32,7 +32,7 @@ if ($selected_game_id) {
     $stmt->fetch();
     $stmt->close();
 
-    // Fetch average ratings for the selected game
+
     $avg_stmt = $conn->prepare("
         SELECT 
             AVG(emotional_connection),
@@ -282,6 +282,152 @@ const userGamesOptions = {
 new ApexCharts(document.querySelector("#allGamesChart"), allGamesOptions).render();
 new ApexCharts(document.querySelector("#userGamesChart"), userGamesOptions).render();
 </script>
+
+<style>
+    body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+.rate_top{
+    display: flex;
+    flex-direction: column;
+}
+
+.choose_game{
+    width: 250px;
+}
+
+/* Header */
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+h2 {
+    margin-top: 40px;
+    color: #34495e;
+}
+
+/* Form */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+.button-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.button-group button,
+.button-group a {
+    width: 250px;
+    padding: 12px 0;
+    font-size: 1rem;
+    text-align: center;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border: none;
+}
+
+.button-group button {
+    background-color: #2980b9;
+}
+
+.button-group button:hover {
+    background-color: #1c598c;
+}
+
+.button-group a {
+    background-color: #07802e;
+}
+
+.button-group a:hover {
+    background-color: #023a13;
+}
+
+/* Responsívne */
+@media (max-width: 768px) {
+    .button-group button,
+    .button-group a {
+        width: 100%;
+    }
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background-color: #2980b9;
+    color: white;
+    text-transform: capitalize;
+}
+
+td {
+    font-weight: bold;
+}
+
+/* Charts */
+#allGamesChart,
+#userGamesChart {
+    width: 900px;
+    margin: 40px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.chart{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    select, button, a {
+        width: 100%;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+}
+
+</style>
 
 </body>
 </html>

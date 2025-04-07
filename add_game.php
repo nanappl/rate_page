@@ -54,6 +54,93 @@ mysqli_close($conn); // Close the database connection
 </body>
 </html>
 
+<!-- <style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #135085;
+    text-align: center;
+    margin-top: 30px;
+}
+
+form {
+    background-color: #6EC0E3;
+    width: 90%;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 1, 0.9);
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 15px;
+    color: #135085;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #135085; 
+    border-radius: 6px;
+    font-size: 14px;
+    resize: vertical;
+    outline: none;
+    box-shadow: none;
+    background-color: #fff; 
+}  
+button {
+    background-color: #135085;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0f3f6a;
+}
+
+.back-game-chooser {
+    display: inline-block;
+    font-size: 18px;
+    color: #135085;
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.back-game-chooser:hover {
+    color:  #5c93cd;
+}
+
+.error-message {
+    color:  #135085;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+</style> -->
+
 <?php
 include("footer.html");
 ?>

@@ -1,9 +1,9 @@
 <?php
 include("header.html");
 session_start();
-include("dbs.php"); // Database connection
+include("dbs.php"); 
 
-// Fetch all games from the database
+
 $query = "SELECT * FROM games";
 $result = mysqli_query($conn, $query);
 
@@ -11,10 +11,8 @@ if (!$result) {
     die("Error fetching games: " . mysqli_error($conn));
 }
 
-// Check if the user selected a game
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['game_id'])) {
     $game_id = $_POST['game_id'];
-    // Redirect to the rate game page with the selected game_id
     header("Location: rate_game.php?game_id=" . $game_id);
     exit;
 }
@@ -40,15 +38,99 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['game_id'])) {
             <?php } ?>
         </select>
         <button type="submit">Rate Game</button>
+        <a class = "ratame" href="game_ratings.php">Game ratings</a>
+
         <p>If your game is not listed, click here to <a href="add_game.php">Add a New Game</a>.</p>
     </form>
-
-    <a class = "rategame" href="game_ratings.php"><button>Game ratings</button></a>
 </div>
 
 </body>
 </html>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
 
+
+.home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px auto 150px auto;
+}
+
+h1 {
+    color: #135085;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 1, 0.9);
+}
+
+
+select, button {
+    height: 50px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #a61f90;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8cm; 
+    margin-top: 20px;
+}
+
+.button-link {
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: #135085;
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    cursor: pointer;
+}
+
+.button-link:hover {
+    background-color: #0a3a60;
+    transition: 0.3s;
+}
+
+p {
+    text-align: center; 
+    color: #135085; 
+    margin-top: 10px; 
+}
+
+p a {
+    color: #5c93cd;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+p a:hover {
+    text-decoration: underline; 
+}
+</style>
 <?php
 mysqli_close($conn);
 include("footer.html");

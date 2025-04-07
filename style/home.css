@@ -5,6 +5,7 @@ body {
     padding: 0;
 }
 
+
 .home{
     display: flex;
     flex-direction: column;
@@ -26,35 +27,57 @@ form {
     width: 80%;
     max-width: 600px;
     margin: 20px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 1, 0.9);
 }
 
 
 select, button {
     height: 50px;
     width: 100%;
-    padding: 10px;
-    margin: 20px 0;
     border-radius: 5px;
-    border: 1px solid #135085; /* Dark blue border */
+    border: 1px solid #a61f90;
 }
 
-button {
-    background-color: #135085; /* Dark blue background */
-    color: #ffffff; /* White text */
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    width: 100%;
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8cm; 
+    margin-top: 20px;
 }
 
-button:hover {
-    transition: 0.3s;
-    background-color: #0a3a60; /* Slightly darker blue on hover */
-}
-
-/* Paragraph and link styling */
-p {
+.button-link {
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
     text-align: center;
-    color: #135085; /* Dark blue text */
+    background-color: #135085;
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    cursor: pointer;
+}
+
+.button-link:hover {
+    background-color: #0a3a60;
+    transition: 0.3s;
+}
+
+p {
+    text-align: center; 
+    color: #135085; 
+    margin-top: 10px; 
+}
+
+p a {
+    color: #5c93cd;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+p a:hover {
+    text-decoration: underline; 
 }

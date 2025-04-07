@@ -4,15 +4,13 @@
 
 <?php
     session_start();
-    include("dbs.php"); // Database connection
+    include("dbs.php"); 
 
-    // Check if the user is logged in
     if (!isset($_SESSION["user_id"])) {
         header("Location: login.php");
         exit();
     }
 
-    // Get the game_id from URL
     if (!isset($_GET['game_id'])) {
         header("Location: home.php");
         exit();
@@ -21,7 +19,6 @@
     $game_id = intval($_GET['game_id']);
     $user_id = $_SESSION["user_id"];
 
-    // Fetch the game details for display
     $stmt = $conn->prepare("SELECT name FROM games WHERE id = ?");
     $stmt->bind_param("i", $game_id);
     $stmt->execute();
@@ -29,7 +26,6 @@
     $stmt->fetch();
     $stmt->close();
 
-    // Handle the form submission
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Collect rating values from the form
         $emotional_connection = intval($_POST["emotional_connection"]);
@@ -232,6 +228,109 @@
 
 </body>
 </html>
+
+<style>
+    body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fff;
+    margin: 0;
+    padding: 20px;
+    color: #135085;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #135085;
+}
+
+form {
+    background: #6EC0E3;
+    padding: 15px;
+    max-width: 400px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+}
+
+.rating-container {
+    display: flex;
+    align-items: center; /* Aligns label and input in the center vertically */
+    margin-bottom: 15px; /* Space between each rating container */
+    width: 100%;
+}
+
+label {
+    font-size: 18px;
+    margin-right: 15px; /* Space between label and input (about 3cm) */
+    flex: 1; /* Ensures the label occupies available space */
+}
+
+input[type="number"] {
+    width: 30px; 
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #135085;
+    font-size: 15px;
+    background-color: #fff;
+    color: #135085;
+}
+
+.info-icon {
+    cursor: pointer;
+    color: #007bff;
+    margin-left: 5px;
+}
+
+.tooltip {
+    display: none;
+    position: absolute;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+button {
+    background-color: #135085;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px; 
+    display: block;
+    width: auto;
+    margin: 20px auto;
+}
+
+button:hover {
+    background-color: #0e3b63;
+}
+
+.back-to-home {
+    display: inline-block;
+    font-size: 18px;
+    color: #135085;
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.back-to-home:hover {
+    color:  #5c93cd;
+}
+
+
+</style>
 
 <?php
     include("footer.html");
