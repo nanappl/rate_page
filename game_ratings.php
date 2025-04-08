@@ -219,12 +219,12 @@ foreach ($games as $game) {
 
 <div class="chart_box">
     <div class="chart">
-        <h2>All Games Average Ratings (Radar Chart)</h2>
+        <h2>All Games Average Ratings</h2>
         <div id="allGamesChart"></div>
     </div>
 
     <div class="chart">
-        <h2>Your Ratings Across All Games (Radar Chart)</h2>
+        <h2>Your Ratings of this game</h2>
         <div id="userGamesChart"></div>
     </div>
 </div>
@@ -240,7 +240,9 @@ const categories = [
 const allGamesOptions = {
     chart: {
         type: 'radar',
-        height: 500
+        height: 650, 
+        width: '100%',
+        background: 'url(img/chartbg.png)'
     },
     title: {
         text: 'All Game Average Ratings'
@@ -262,7 +264,9 @@ const allGamesOptions = {
 const userGamesOptions = {
     chart: {
         type: 'radar',
-        height: 500
+        height: 650, 
+        width: '100%',
+        background: 'url(img/chartbg.png)'
     },
     title: {
         text: 'Your Ratings Across Games'
@@ -284,6 +288,7 @@ const userGamesOptions = {
 new ApexCharts(document.querySelector("#allGamesChart"), allGamesOptions).render();
 new ApexCharts(document.querySelector("#userGamesChart"), userGamesOptions).render();
 </script>
+
 
 <style>
 .rate_con{
@@ -341,16 +346,13 @@ form {
     border: none;
 }
 
+
 .button-group button {
     background-color: #2980b9;
 }
 
 .button-group button:hover {
     background-color: #1c598c;
-}
-
-.button-group a {
-    background-color: #07802e;
 }
 
 .button-group a:hover {
@@ -424,6 +426,13 @@ td {
         font-size: 0.9rem;
     }
 }
+
+#allGamesChart, #userGamesChart {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 
 </style>
 

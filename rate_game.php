@@ -221,6 +221,12 @@ button:hover {
     background-color: #0f3f6a;
 }
 
+
+.form_con{
+    
+    margin: 100px 0 300px 0;
+}
+
     </style>
 </head>
 <body>

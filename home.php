@@ -56,6 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['game_id'])) {
         }
 
         .home {
+            margin: 100px 0 600px 0;
             display: flex;
             flex-direction: column;
             align-items: center;
