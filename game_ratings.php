@@ -63,7 +63,7 @@ if ($selected_game_id) {
     $avg_stmt->fetch();
     $avg_stmt->close();
 
-    // Fetch the user's rating for this game
+    
     $user_stmt = $conn->prepare("
         SELECT 
             emotional_connection,
@@ -95,7 +95,7 @@ if ($selected_game_id) {
     $user_stmt->close();
 }
 
-// For chart: Fetch average ratings for all games
+
 $all_game_series = [];
 foreach ($games as $game) {
     $stmt = $conn->prepare("
@@ -125,7 +125,6 @@ foreach ($games as $game) {
     $stmt->close();
 }
 
-// For chart: Fetch current user's ratings for all games
 $user_game_series = [];
 foreach ($games as $game) {
     $stmt = $conn->prepare("
@@ -166,7 +165,7 @@ foreach ($games as $game) {
     <link rel="stylesheet" href="style/rating.css">
 </head>
 <body>
-
+</div class = "rate_con">
 <h1>Game Ratings</h1>
 
 <form method="POST">
@@ -218,14 +217,17 @@ foreach ($games as $game) {
     <?php endif; ?>
 <?php endif; ?>
 
-<div class="chart">
-    <h2>All Games Average Ratings (Radar Chart)</h2>
-    <div id="allGamesChart"></div>
-</div>
+<div class="chart_box">
+    <div class="chart">
+        <h2>All Games Average Ratings (Radar Chart)</h2>
+        <div id="allGamesChart"></div>
+    </div>
 
-<div class="chart">
-    <h2>Your Ratings Across All Games (Radar Chart)</h2>
-    <div id="userGamesChart"></div>
+    <div class="chart">
+        <h2>Your Ratings Across All Games (Radar Chart)</h2>
+        <div id="userGamesChart"></div>
+    </div>
+</div>
 </div>
 
 <script>
@@ -284,6 +286,14 @@ new ApexCharts(document.querySelector("#userGamesChart"), userGamesOptions).rend
 </script>
 
 <style>
+.rate_con{
+    display: flex;
+    flex-direction: column;
+}
+.chart_box{
+    display: flex;
+    flex-direction: column;
+}
     body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: #f4f4f4;
@@ -301,19 +311,6 @@ new ApexCharts(document.querySelector("#userGamesChart"), userGamesOptions).rend
     width: 250px;
 }
 
-/* Header */
-h1 {
-    text-align: center;
-    color: #2c3e50;
-    margin-bottom: 30px;
-}
-
-h2 {
-    margin-top: 40px;
-    color: #34495e;
-}
-
-/* Form */
 form {
     display: flex;
     flex-wrap: wrap;
@@ -405,7 +402,8 @@ td {
 }
 
 .chart{
-    width: 100%;
+    margin: 100px 0;
+    scale: 1.3;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -34,7 +34,6 @@ mysqli_close($conn); // Close the database connection
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add New Game</title>
-    <link rel="stylesheet" href="style/add.css">
 </head>
 <body>
     <div class="add_game">
@@ -74,7 +73,6 @@ h1 {
 }
 
 form {
-    background-color: #6EC0E3;
     width: 90%;
     max-width: 600px;
     margin: 30px auto;
@@ -103,8 +101,8 @@ label {
 
 input[type="text"],
 textarea {
-    width: 100%;
-    padding: 10px;
+    padding: 10px 0;
+    width: 598px;
     margin-top: 5px;
     border: 1px solid #135085; 
     border-radius: 6px;
@@ -130,6 +128,10 @@ button:hover {
     background-color: #0f3f6a;
 }
 
+.apexcharts-grid{
+    width: 500px;
+}
+
 .back-game-chooser {
     display: inline-block;
     font-size: 18px;
@@ -148,12 +150,6 @@ button:hover {
     color:  #5c93cd;
 }
 
-.error-message {
-    color:  #135085;
-    font-weight: bold;
-    margin-top: 10px;
-    font-size: 16px;
-}
 
 </style>
 </html>

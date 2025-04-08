@@ -150,6 +150,8 @@
         }
 
         
+
+        /* Styling for the select dropdown */
         select {
             font-size: 14px;
             padding: 8px;
@@ -159,6 +161,7 @@
             color: #135085;
             width: 100px;
         }
+
 
         body {
     font-family: 'Segoe UI', sans-serif;

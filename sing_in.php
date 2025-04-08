@@ -72,12 +72,26 @@ mysqli_close($conn);
             </div>
 
             <button type="submit">Register</button>
-        </form>
 
-        <p>Already have an account? <a href="login.php">Login here</a></p>
+
+        <p class = "reg_p">Already have an account? <a href="login.php">Login here</a></p>
+        </form>
     </div>
 </body>
 </html>
+
+<style>
+    .reg_p{
+    margin-top: 20px;
+    color: #135085;
+    text-decoration: none;
+
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+</style>
 
 <?php
 include("footer.html");

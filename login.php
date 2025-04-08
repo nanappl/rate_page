@@ -75,10 +75,25 @@ mysqli_close($conn);
             </div>
 
             <button type="submit">Login</button>
+            <p class = "reg_p" >Don't have an account? <a href="sing_in.php">Sign up here</a></p>
         </form>
-        <p>Don't have an account? <a href="sing_in.php">Sign up here</a></p>
+      
     </div>
 </body>
+
+
+<style>
+    .reg_p{
+    margin-top: 20px;
+    color: #135085;
+    text-decoration: none;
+
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+</style>
 </html>
 
 <?php
