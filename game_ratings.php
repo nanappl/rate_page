@@ -242,6 +242,12 @@ const allGamesOptions = {
         type: 'radar',
         height: 650, 
         width: '100%',
+          // this is for remove download
+        toolbar: {
+            tools: {
+                download: false
+            }
+        },
         background: 'url(img/chartbg.png)'
     },
     title: {
@@ -266,6 +272,12 @@ const userGamesOptions = {
         type: 'radar',
         height: 650, 
         width: '100%',
+        // this is for remove download
+        toolbar: {
+            tools: {
+                download: false
+            }
+        },
         background: 'url(img/chartbg.png)'
     },
     title: {
